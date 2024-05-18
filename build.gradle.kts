@@ -18,7 +18,7 @@ plugins {
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.8"
 }
 
-group = "io.github.ultreon.craftmods"
+group = "dev.ultreon.craftmods"
 version = "0.1.0+snapshot." + DateTimeFormatter.ofPattern("yyy.MM.dd.HH.mm").format(Instant.now().atOffset(ZoneOffset.UTC))
 
 println("Building version $version")
@@ -31,11 +31,35 @@ repositories {
     mavenCentral()
 
     maven {
+        name = "SonaType Snapshots"
+        url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+
+        content {
+            includeGroup("com.badlogicgames.gdx-video")
+        }
+    }
+
+    maven {
+        name = "SonaType Releases"
+        url = uri("https://oss.sonatype.org/content/repositories/releases")
+
+        content {
+            includeGroup("com.badlogicgames.gdx-video")
+        }
+    }
+
+    maven {
         name = "JitPack"
         url = uri("https://jitpack.io")
 
         content {
-            includeGroup("com.github.Ultreon")
+            includeGroup("dev.ultreon")
+            includeGroup("dev.ultreon.quantum-voxel")
+            includeGroup("dev.ultreon.ubo")
+            includeGroup("dev.ultreon.corelibs")
+            includeGroup("dev.ultreon.JNoiseJDK11")
+            includeGroup("dev.ultreon.json5-api")
+            includeGroup("dev.ultreon.quantum-fabric-loader")
             includeGroup("com.github.jagrosh")
             includeGroup("com.github.JnCrMx")
             includeGroup("com.github.mgsx-dev.gdx-gltf")
@@ -46,16 +70,6 @@ repositories {
     maven {
         name = "FabricMC"
         url = uri("https://maven.fabricmc.net/")
-    }
-
-    maven {
-        name = "UltracraftMaven"
-        url = uri("https://maven.pkg.github.com/Ultreon/ultracraft")
-
-        credentials {
-            username = (project.findProperty("gpr.user") ?: System.getenv("USERNAME")) as String
-            password = (project.findProperty("gpr.key") ?: System.getenv("TOKEN")) as String
-        }
     }
 }
 
@@ -72,7 +86,7 @@ dependencies {
     configurations["include"](compileOnly("org.scala-lang:scala-library:2.13.10")!!)
 
 //    api(implementation("io.github.ultreon.craft:ultracraft-api:0.1.+")!!)
-    api(implementation("io.github.ultreon.craft:ultracraft-desktop:0.1.+")!!)
+    api(implementation("dev.ultreon.quantum-voxel:quantum-desktop:ed398498ec")!!)
 }
 
 tasks.jar {
@@ -208,13 +222,6 @@ publishing {
     }
 
     repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/Ultreon/ultracraft-scala")
-            credentials {
-                username = (project.findProperty("gpr.user") ?: System.getenv("USERNAME")) as String
-                password = (project.findProperty("gpr.key") ?: System.getenv("TOKEN")) as String
-            }
-        }
+        mavenLocal()
     }
 }

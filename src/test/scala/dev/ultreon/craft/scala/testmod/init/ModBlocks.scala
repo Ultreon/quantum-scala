@@ -1,10 +1,10 @@
-package com.ultreon.craft.scala.testmod.init
+package dev.ultreon.craft.scala.testmod.init
 
 import com.ultreon.craft.block.Block
 import com.ultreon.craft.item.ItemStack
 import com.ultreon.craft.registry.{DeferRegistry, DeferredElement, Registries}
-import com.ultreon.craft.scala.registry.ObjectInit
-import com.ultreon.craft.scala.testmod.Constants
+import dev.ultreon.craft.scala.registry.ObjectInit
+import dev.ultreon.craft.scala.testmod.Constants
 
 import java.util.function.Supplier
 import scala.language.postfixOps

@@ -1,4 +1,4 @@
-package com.ultreon.craft.scala.testmod
+package dev.ultreon.craft.scala.testmod
 
 import net.fabricmc.loader.api.{FabricLoader, ModContainer}
 

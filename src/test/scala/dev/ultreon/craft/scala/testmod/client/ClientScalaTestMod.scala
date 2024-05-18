@@ -1,4 +1,4 @@
-package com.ultreon.craft.scala.testmod.client
+package dev.ultreon.craft.scala.testmod.client
 
 import com.ultreon.craft.client.api.events.ClientLifecycleEvents
 import com.ultreon.craft.client.{ClientModInit, UltracraftClient}

@@ -1,4 +1,4 @@
-package com.ultreon.craft.scala
+package dev.ultreon.craft.scala
 
 import net.fabricmc.api.ModInitializer
 

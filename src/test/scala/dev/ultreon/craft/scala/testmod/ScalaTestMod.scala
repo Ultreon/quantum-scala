@@ -1,6 +1,6 @@
-package com.ultreon.craft.scala.testmod
+package dev.ultreon.craft.scala.testmod
 
-import com.ultreon.craft.scala.testmod.init.{ModBlocks, ModItems}
+import dev.ultreon.craft.scala.testmod.init.{ModBlocks, ModItems}
 import net.fabricmc.api.ModInitializer
 
 class ScalaTestMod extends ModInitializer {

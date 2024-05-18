@@ -1,6 +1,6 @@
-package com.ultreon.craft.scala.registry
+package dev.ultreon.craft.scala.registry
 
-import com.ultreon.craft.registry.{DeferRegistry, DeferredElement, Registry}
+import dev.ultreon.quantum.registry.{DeferRegistry, DeferredElement, Registry}
 
 abstract class ObjectInit[T](namespace: String, registry: Registry[T]) {
   private val deferRegister = DeferRegistry.of[T](namespace, registry)
